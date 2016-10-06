@@ -417,25 +417,61 @@ class IndexController extends Controller
 
 ### Change the ratio provider
 
-The ratio provider by default is base on the service 'tbbc_money.ratio_provider.yahoo_finance'
+This bundle uses [florianv/swap](https://github.com/florianv/swap/tree/2.x) library for requesting currency
+exchange rates from [various providers](https://github.com/florianv/swap/tree/2.x#providers).
 
-This bundles contains two ratio providers :
-
-* tbbc_money.ratio_provider.yahoo_finance based on the Yahoo finance APIs https://developer.yahoo.com/
-* tbbc_money.ratio_provider.google based on the https://www.google.com/finance/converter service
-
-You can change the service to use in the config.yml file :
+The ratio provider is using yahoo finance provider. You can change the provider to use in the config.yml file:
 
 ```
 tbbc_money:
     [...]
-    ratio_provider: tbbc_money.ratio_provider.google
+    ratio_provider: "google_provider"
+```
+
+Here `google_provider` is the name of the service which you need to define with Dependency Injection before using, e.g. like so:
+
+```
+services:
+    curl:
+      class: Ivory\HttpAdapter\CurlHttpAdapter
+    google_provider:
+      class: Swap\Provider\GoogleFinanceProvider
+      arguments:
+        - "@curl"
+```
+
+
+You can use any providers as described at [florianv/swap project](https://github.com/florianv/swap/tree/2.x),
+or even combination of those. The following example will try to use Yahoo provider and if it fails will switch to
+Google Provider instead:
+
+
+```
+services:
+    curl:
+      class: Ivory\HttpAdapter\CurlHttpAdapter
+    yahoo_provider:
+      class: Swap\Provider\YahooFinanceProvider
+      arguments:
+        - "@curl"
+    google_provider:
+      class: Swap\Provider\GoogleFinanceProvider
+      arguments:
+        - "@curl"
+    chain_provider:
+      class: Swap\Provider\ChainProvider
+      arguments:
+        - ["@yahoo_provider", "@google_provider"]
+        
+tbbc_money:
+   [...]
+   ratio_provider: "chain_provider"
 ```
 
 
 ### Create your own ratio provider
 
-A ratio provider is a service that implements the `Tbbc\MoneyBundle\Pair\RatioProviderInterface`.
+A ratio provider is a service that implements the `Swap\ProviderInterface`.
 I recommend that you read the PHP doc of the interface to understand how to implement a new ratio provider.
 
 The new ratio provider has to be registered as a service.
@@ -446,12 +482,12 @@ service name.
 ```
 tbbc_money:
     [...]
-    ratio_provider: tbbc_money.ratio_provider.google
+    ratio_provider: your_provider_service
 ```
 
 
 
-### automatic currency ratio fetch
+### Automatic currency ratio fetch
 
 Add to your crontab :
 
