@@ -2,6 +2,7 @@
 namespace Tbbc\MoneyBundle\Pair;
 
 use Money\Money;
+use Swap\ProviderInterface;
 
 /**
  * Interface PairManagerInterface
@@ -60,11 +61,12 @@ interface PairManagerInterface
     public function getRatioList();
 
     /**
+     * Supports both TbbcMoneyBundle-specific RatioProviderInterface and ProviderInterface from swap library
      * just for dependency injection. inject if needed the ratio provider
      *
-     * @param RatioProviderInterface $ratioProvider
+     * @param RatioProviderInterface|ProviderInterface $ratioProvider
      */
-    public function setRatioProvider(RatioProviderInterface $ratioProvider);
+    public function setRatioProvider($ratioProvider);
 
     /**
      * If ratio provider is defined, get currency code list, and fetch ratio
