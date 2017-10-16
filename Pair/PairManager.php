@@ -8,6 +8,7 @@ use Money\Currency;
 use Money\CurrencyPair;
 use Money\Exchange;
 use Money\Money;
+use Swap\ProviderInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Tbbc\MoneyBundle\MoneyException;
 use Tbbc\MoneyBundle\TbbcMoneyEvents;
@@ -154,8 +155,21 @@ class PairManager implements PairManagerInterface, Exchange
     /**
      * {@inheritdoc}
      */
-    public function setRatioProvider(RatioProviderInterface $ratioProvider)
+    public function setRatioProvider($provider)
     {
+        if ($provider instanceof ProviderInterface) {
+            $ratioProvider = new SwapAdapterRatioProvider($provider);
+        } else {
+            $ratioProvider = $provider;
+        }
+
+        if (!$ratioProvider instanceof RatioProviderInterface) {
+            throw new \RuntimeException(sprintf(
+                'Expected instance of RatioProviderInterface, but got %',
+                get_class($ratioProvider)
+            ));
+        }
+
         $this->ratioProvider = $ratioProvider;
     }
 
