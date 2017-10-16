@@ -1,5 +1,5 @@
 {
-    "name": "tbbc/money-bundle",
+    "name": "clippings/money-bundle",
     "type": "symfony-bundle",
     "description": "This is a Symfony bundle that integrates moneyphp/money library (Fowler pattern): https://github.com/moneyphp/money.",
     "keywords": ["money", "currency", "fowler", "conversion"],
