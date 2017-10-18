@@ -39,7 +39,6 @@ class CurrencyExtensionTest extends \PHPUnit_Framework_TestCase
     public function getCurrencyTests()
     {
         return array(
-            array('{{ currency|currency_name }}', 'EUR'),
             array('{{ currency|currency_symbol(".", ",") }}', '€'),
         );
     }

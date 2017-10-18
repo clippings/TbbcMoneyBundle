@@ -104,10 +104,4 @@ class MoneyFormatterTest extends \PHPUnit_Framework_TestCase
         $value = $this->formatter->formatCurrencyAsSymbol($this->inputMoney->getCurrency());
         $this->assertEquals('€', $value);
     }
-
-    public function testFormatCurrencyAsName()
-    {
-        $value = $this->formatter->formatCurrencyAsName($this->inputMoney->getCurrency());
-        $this->assertEquals('EUR', $value);
-    }
 }

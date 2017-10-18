@@ -126,17 +126,6 @@ class MoneyFormatter
     }
 
     /**
-     * Returns the name as string of the given currency
-     *
-     * @param Currency $currency
-     * @return string
-     */
-    public function formatCurrencyAsName(Currency $currency)
-    {
-        return $currency->getCode();
-    }
-
-    /**
      * @param string $currencyCode
      * @param string $locale
      *
