@@ -137,17 +137,6 @@ class MoneyFormatter
     }
 
     /**
-     * Returns the Currency object
-     *
-     * @param Money $money
-     * @return \Money\Currency
-     */
-    public function getCurrency(Money $money)
-    {
-        return $money->getCurrency();
-    }
-
-    /**
      * @param string $currencyCode
      * @param string $locale
      *

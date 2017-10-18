@@ -87,17 +87,6 @@ class MoneyHelper extends Helper
     }
 
     /**
-     * Returns the Currency object
-     *
-     * @param Money $money
-     * @return \Money\Currency
-     */
-    public function getCurrency(Money $money)
-    {
-        return $this->moneyFormatter->getCurrency($money);
-    }
-
-    /**
      * Converts the given Money object into another
      * currency and returns a new Money object
      *
