@@ -27,17 +27,6 @@ class CurrencyHelper extends Helper
     }
 
     /**
-     * Returns the name as string of the given currency
-     *
-     * @param Currency $currency
-     * @return string
-     */
-    public function name(Currency $currency)
-    {
-        return $this->moneyFormatter->formatCurrencyAsName($currency);
-    }
-
-    /**
      * Returns the symbol corresponding to the given currency
      *
      * @param Currency $currency

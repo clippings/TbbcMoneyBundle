@@ -14,7 +14,7 @@ a Symfony project.
 
 This library is based on Fowler's [Money pattern](http://blog.verraes.net/2011/04/fowler-money-pattern-in-php/)
 
-* This bundle is tested and is stable with Symfony 2.8 and Symfony 3.1 
+* This bundle is tested and is stable with Symfony 2.8 and Symfony 3.1
 
 Quick Start
 -----------
@@ -66,7 +66,7 @@ Table of contents
 Installation
 ------------
 
-Use [Composer](http://getcomposer.org/) and install with  
+Use [Composer](http://getcomposer.org/) and install with
 `$ composer require tbbc/money-bundle`
 
 Then add the bundle in AppKernel :
@@ -389,8 +389,8 @@ class IndexController extends Controller
 {{ $amount | money_localized_format }} => depends on your default locale
 {{ $amount | money_format }}
 {{ $amount | money_as_float }}
-{{ $amount | money_get_currency | currency_symbol }}
-{{ $amount | money_get_currency | currency_name }}
+{{ $amount.currency | currency_symbol }}
+{{ $amount.currency.code }}
 {{ $amount | money_convert("USD") | money_format }}
 {{ $amount | money_format_currency }}
 ```
@@ -600,7 +600,7 @@ Note about older versions
 -------------------------
 
 - Examples above use Symfony 3 syntax for the console (`./bin/console`), for version 2.8 you should use `./app/console` instead.
-- "class" constant (e.g. `MoneyType::class`) is only supported since PHP 5.5, if you have an older version, you should use the full 
+- "class" constant (e.g. `MoneyType::class`) is only supported since PHP 5.5, if you have an older version, you should use the full
 class name instead (e.g. `Tbbc\MoneyBundle\Type\MoneyType`)
 
 
@@ -621,8 +621,8 @@ Requirements
 Authors
 -------
 
-Philippe Le Van - [kitpages.fr](http://www.kitpages.fr) - twitter : @plv  
-Thomas Tourlourat - [Wozbe](http://wozbe.com) - twitter: @armetiz  
+Philippe Le Van - [kitpages.fr](http://www.kitpages.fr) - twitter : @plv
+Thomas Tourlourat - [Wozbe](http://wozbe.com) - twitter: @armetiz
 
 
 Status

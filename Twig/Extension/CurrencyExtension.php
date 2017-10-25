@@ -35,7 +35,6 @@ class CurrencyExtension extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('currency_name', array($this->moneyFormatter, 'formatCurrencyAsName')),
             new \Twig_SimpleFilter('currency_symbol', array($this->moneyFormatter, 'formatCurrencyAsSymbol')),
         );
     }
