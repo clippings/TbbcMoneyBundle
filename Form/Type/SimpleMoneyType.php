@@ -44,7 +44,7 @@ class SimpleMoneyType extends MoneyType
     {
         $builder
             ->add('tbbc_amount', 'Symfony\Component\Form\Extension\Core\Type\MoneyType', array(
-                'currency' => $this->referenceCurrencyCode,
+                'currency' => $options['currency'],
             ))
         ;
 
