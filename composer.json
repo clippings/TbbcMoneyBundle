@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "This is a Symfony bundle that integrates moneyphp/money library (Fowler pattern): https://github.com/moneyphp/money.",
     "keywords": ["money", "currency", "fowler", "conversion"],
-    "homepage": "https://github.com/TheBigBrainsCompany/TbbcMoneyBundle",
+    "homepage": "https://github.com/Clippings/TbbcMoneyBundle",
     "license": "MIT",
     "authors": [
         {
