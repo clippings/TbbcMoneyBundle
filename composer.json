@@ -23,7 +23,9 @@
         "symfony/twig-bundle": "~2.8|~3.0",
         "symfony/console": "~2.8|~3.0",
         "symfony/dom-crawler": "~2.8|~3.0",
-        "florianv/swap": "^2.6"
+        "florianv/swap": "^3.2",
+        "php-http/message": "^1.6",
+        "php-http/guzzle6-adapter": "^1.1"
     },
     "require-dev": {
         "symfony/class-loader": "~2.8|~3.0",
