@@ -26,7 +26,7 @@ class MoneyToArrayTransformer implements DataTransformerInterface
     public function __construct($decimals = 2)
     {
         $this->decimals = (int) $decimals;
-        $this->sfTransformer = new MoneyToLocalizedStringTransformer($decimals, null, null, pow(10, $this->decimals));
+        $this->sfTransformer = new MoneyToLocalizedStringTransformer($decimals, false, null, pow(10, $this->decimals));
     }
 
     /**
