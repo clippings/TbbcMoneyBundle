@@ -25,7 +25,8 @@
         "symfony/dom-crawler": "~2.8|~3.0",
         "florianv/swap": "^3.2",
         "php-http/message": "^1.6",
-        "php-http/guzzle6-adapter": "^1.1"
+        "php-http/guzzle6-adapter": "^1.1",
+        "composer/installers": "^1.5"
     },
     "require-dev": {
         "symfony/class-loader": "~2.8|~3.0",
