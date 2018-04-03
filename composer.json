@@ -49,6 +49,5 @@
     },
     "autoload": {
         "psr-0": { "Tbbc\\MoneyBundle": "" }
-    },
-    "target-dir": "Tbbc/MoneyBundle"
+    }
 }
