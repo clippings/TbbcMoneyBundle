@@ -9,7 +9,8 @@ use Tbbc\MoneyBundle\Pair\RatioProviderInterface;
 /**
  * GoogleRatioProvider
  * Fetches currencies ratios from google finance currency converter
- * @deprecated Use Swap\Provider\GoogleFinanceProvider instead
+ * @author Hugues Maignol <hugues.maignol@kitpages.fr>
+ * @deprecated Google doesn't provides this api anymore
  */
 class GoogleRatioProvider implements RatioProviderInterface
 {
