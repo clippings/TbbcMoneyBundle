@@ -421,7 +421,7 @@ class IndexController extends Controller
 This bundle uses [florianv/swap](https://github.com/florianv/swap/tree/2.x) library for requesting currency
 exchange rates from [various providers](https://github.com/florianv/swap/tree/2.x#providers).
 
-The ratio provider is using yahoo finance provider. You can change the provider to use in the config.yml file:
+You can change the service to use in the config.yml file :
 
 ```
 tbbc_money:
